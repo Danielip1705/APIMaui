@@ -1,16 +1,15 @@
-﻿using APIMaui.Models.utils;
-using DAL;
-using ENT;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using APIMAUI1.Models.utils;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using DAL;
+using ENT;
 
-namespace APIMaui.Models
+namespace APIMAUI1.Models
 {
     public class PersonaVM : INotifyPropertyChanged
     {
@@ -20,7 +19,7 @@ namespace APIMaui.Models
         public DelegateCommand CrearPersona
         {
             get { return crearPersona; }
-         
+
         }
 
         public PersonaVM()
@@ -39,7 +38,7 @@ namespace APIMaui.Models
 
         private async void createPersonaExecute()
         {
-           await Shell.Current.GoToAsync("///CreatePage");
+            await Shell.Current.GoToAsync("//CrearPage");
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -49,6 +48,5 @@ namespace APIMaui.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
-
 }
+

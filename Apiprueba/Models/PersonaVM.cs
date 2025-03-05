@@ -1,34 +1,22 @@
-﻿using APIMaui.Models.utils;
+﻿using Apiprueba.Models.utils;
 using DAL;
 using ENT;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
-namespace APIMaui.Models
+namespace Apiprueba.Models
 {
     public class PersonaVM : INotifyPropertyChanged
     {
         public ObservableCollection<Personas> listaPersonas { get; set; }
-        private DelegateCommand crearPersona;
-
-        public DelegateCommand CrearPersona
-        {
-            get { return crearPersona; }
-         
-        }
+        public DelegateCommand crearPersonaCommand { get; }
 
         public PersonaVM()
         {
-            crearPersona = new DelegateCommand(createPersonaExecute);
+            crearPersonaCommand = new DelegateCommand(createPersonaExecute);
             CargarPersonas();
         }
-
 
         public async Task CargarPersonas()
         {
@@ -39,16 +27,14 @@ namespace APIMaui.Models
 
         private async void createPersonaExecute()
         {
-           await Shell.Current.GoToAsync("///CreatePage");
+            await Shell.Current.GoToAsync("//CrearPage"); 
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
-
 }

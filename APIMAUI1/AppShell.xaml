@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="APIMAUI1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:APIMAUI1"
+    xmlns:views="clr-namespace:APIMAUI1.Vistas"
+    Shell.FlyoutBehavior="Disabled"
+    Title="APIMAUI1">
+
+    <ShellContent
+        Title="Listado"
+        ContentTemplate="{DataTemplate views:ListadoPersonas}"
+        Route="ListadoPage">
+    </ShellContent>
+    
+    <ShellContent
+            Title="Crear"
+            ContentTemplate="{DataTemplate views:CrearPersona}"
+            Route="CrearPage">
+    </ShellContent>
+
+</Shell>

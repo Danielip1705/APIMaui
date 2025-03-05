@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:VM="clr-namespace:Apiprueba.Models"
-             x:Class="Apiprueba.MainPage">
-    
+             x:Class="APIMAUI1.Vistas.ListadoPersonas"
+             xmlns:VM="clr-namespace:APIMAUI1.Models"
+             Title="ListadoPersonas">
+
     <ContentPage.BindingContext>
         <VM:PersonaVM></VM:PersonaVM>
     </ContentPage.BindingContext>
-
-
+    
     <VerticalStackLayout>
         <Label Text="Listado Personas" HorizontalOptions="Center" VerticalOptions="Center"/>
 
@@ -26,6 +26,4 @@
         </ListView>
         <Button Text="AA" Command="{Binding CrearPersona}"></Button>
     </VerticalStackLayout>
-
-
 </ContentPage>
