@@ -1,0 +1,10 @@
+﻿using Foundation;
+
+namespace Apiprueba
+{
+    [Register("AppDelegate")]
+    public class AppDelegate : MauiUIApplicationDelegate
+    {
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    }
+}

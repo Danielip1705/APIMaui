@@ -26,7 +26,7 @@ namespace DAL
                 response = await httpClient.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
-                    textoJsonRes = await httpClient.GetStringAsync(uri); 
+                    textoJsonRes = await httpClient.GetStringAsync(uri);
                     httpClient.Dispose();
                     listaPersonas = JsonConvert.DeserializeObject<List<Personas>>(textoJsonRes);
                 }
@@ -37,28 +37,27 @@ namespace DAL
             }
             return listaPersonas;
         }
-    }
 
 
-    public async Task<HttpStatusCode> insertarPersona(Personas per)
-    {
-        HttpClient httpClient = new HttpClient();
-        string datos;
-        HttpContent contenido;
-        string uri = Url.getUri();
-        Uri miUri = new Uri(uri);
-        
-        HttpResponseMessage miRespuesta = new HttpResponseMessage();
-        try
+        public async Task<HttpStatusCode> insertarPersona(Personas per)
         {
-            datos = JsonConvert.SerializeObject(per);
-            contenido = new StringContent(datos, Encoding.UTF8, "application/json");
-            miRespuesta = await httpClient.PostAsync(miUri, contenido);
+            HttpClient mihttpClient = new HttpClient();
+            string datos;
+            HttpContent contenido;
+            string miCadenaUrl = Url.getUri();
+            Uri miUri = new Uri($"{miCadenaUrl}Personas");
+            HttpResponseMessage miRespuesta = new HttpResponseMessage();
+            try
+            {
+                datos = JsonConvert.SerializeObject(per);
+                contenido = new StringContent(datos, System.Text.Encoding.UTF8, "application/json");
+                miRespuesta = await mihttpClient.PostAsync(miUri, contenido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return miRespuesta.StatusCode;
         }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-        return miRespuesta.StatusCode;
-    }
+    }  
 }

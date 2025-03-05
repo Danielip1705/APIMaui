@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIMaui.Vistas.Listado"
              xmlns:VM="clr-namespace:APIMaui.Models"
-             x:Class="APIMaui.MainPage">
-
+             Title="Listado">
     <ContentPage.BindingContext>
         <VM:PersonaVM></VM:PersonaVM>
     </ContentPage.BindingContext>
@@ -24,6 +24,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Text="AA" Command="{Binding CrearPersona}"></Button>
     </VerticalStackLayout>
 
 </ContentPage>

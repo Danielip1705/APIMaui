@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using APIMaui.Models.utils;
+using DAL;
 using ENT;
 using System;
 using System.Collections.Generic;
@@ -7,18 +8,27 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace APIMaui.Models
 {
     public class PersonaVM : INotifyPropertyChanged
     {
         public ObservableCollection<Personas> listaPersonas { get; set; }
+        private DelegateCommand crearPersona;
+
+        public DelegateCommand CrearPersona
+        {
+            get { return crearPersona; }
+         
+        }
 
 
 
 
         public PersonaVM()
         {
+            crearPersona = new DelegateCommand(createPersonaExecute);
             CargarPersonas();
         }
 
@@ -30,6 +40,14 @@ namespace APIMaui.Models
             NotifyPropertyChanged("listaPersonas");
         }
 
+        private async void createPersonaExecute()
+        {
+           await Shell.Current.GoToAsync("//CreatePage");
+        }
+        private bool canExecutePersona()
+        {
+            return true;
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
