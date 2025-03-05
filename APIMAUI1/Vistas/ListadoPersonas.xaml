@@ -11,7 +11,6 @@
     
     <VerticalStackLayout>
         <Label Text="Listado Personas" HorizontalOptions="Center" VerticalOptions="Center"/>
-
         <ListView ItemsSource="{Binding listaPersonas}">
             <ListView.ItemTemplate>
                 <DataTemplate>

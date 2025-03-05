@@ -11,11 +11,10 @@ using ENT;
 
 namespace APIMAUI1.Models
 {
-    public class PersonaVM : INotifyPropertyChanged
+    public class PersonaVM : ClsNotify
     {
         public ObservableCollection<Personas> listaPersonas { get; set; }
         private DelegateCommand crearPersona;
-
         public DelegateCommand CrearPersona
         {
             get { return crearPersona; }
@@ -35,18 +34,12 @@ namespace APIMAUI1.Models
             listaPersonas = new ObservableCollection<Personas>(lista);
             NotifyPropertyChanged("listaPersonas");
         }
-
         private async void createPersonaExecute()
         {
-            await Shell.Current.GoToAsync("//CrearPage");
+            await Shell.Current.GoToAsync("///EditarPage");
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
 
