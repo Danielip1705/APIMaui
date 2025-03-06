@@ -20,7 +20,7 @@ namespace APIMaui.Models
             set
             {
                 personaEditar = value;
-                NotifyPropertyChanged("EditarPersona");
+                NotifyPropertyChanged("PersonaEditar");
                 editarPersonaCommand.RaiseCanExecuteChanged();
             }
         }

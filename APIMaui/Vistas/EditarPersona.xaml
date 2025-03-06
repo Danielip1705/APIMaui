@@ -13,15 +13,15 @@
         <Label Text="Editar Persona" VerticalOptions="Center" FontSize="Large"/>
         <HorizontalStackLayout>
             <Label Text="Id: "/>
-            <Entry Text="{Binding EditarPersona.Id}" IsEnabled="False"/>
+            <Entry Text="{Binding PersonaEditar.Id}" IsEnabled="False"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout VerticalOptions="Center">
             <Label Text="Nombre: "/>
-            <Entry Placeholder="Indique el nombre" Text="{Binding EditarPersona.Nombre}"/>
+            <Entry Placeholder="Indique el nombre" Text="{Binding PersonaEditar.Nombre}"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout VerticalOptions="Center">
             <Label Text="Direccion: "/>
-            <Entry Placeholder="Indique la direccion" Text="{Binding EditarPersona.Direccion}"/>
+            <Entry Placeholder="Indique la direccion" Text="{Binding PersonaEditar.Direccion}"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
