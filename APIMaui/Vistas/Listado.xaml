@@ -28,6 +28,8 @@
         <Button Text="+" FontSize="Large" Command="{Binding crearPersona}"></Button>
             <Button Text="Actualizar" Command="{Binding actualizarLista}"/>
             <Button Text="Editar" Command="{Binding editarCommand}"/>
+            <Button Text="Delete" Command="{Binding borrarCommand}"></Button>
+            <Button Text="Detalles" Command="{Binding detallesCommand}"></Button>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 

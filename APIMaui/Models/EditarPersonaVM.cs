@@ -35,7 +35,8 @@ namespace APIMaui.Models
             bool res = await ManejadoraAPI.actualizarPersona(personaEditar);
             if (res)
             {
-            Application.Current.MainPage.DisplayAlert("Persona actualizada", "La persona ha sido actualizada correctamente", "Aceptar");    
+                Application.Current.MainPage.DisplayAlert("Persona actualizada", "La persona ha sido actualizada correctamente", "Aceptar");
+                await Shell.Current.GoToAsync("//Listado");
             } else
             {
                 Application.Current.MainPage.DisplayAlert("Persona no actualizada", "La persona no se ha podido actualizar", "Aceptar");

@@ -80,5 +80,28 @@ namespace DAL
             }
             return miRespuesta.IsSuccessStatusCode;
         }
+
+        public static async Task<bool> EliminarPersona(int id)
+        {
+            string miCadenaUrl = Url.getUri();
+            Uri miUri = new Uri($"{miCadenaUrl}/{id}");
+            HttpClient miHttpClient = new HttpClient();
+            bool res;
+            try
+            {
+                HttpResponseMessage respuesta = await miHttpClient.DeleteAsync(miUri);
+
+                res = respuesta.IsSuccessStatusCode;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                miHttpClient.Dispose();
+            }
+            return res;
+        }
     }  
 }

@@ -21,5 +21,9 @@
         Title="Editar"
         ContentTemplate="{DataTemplate vistas:EditarPersona}"
         Route="EditarPage"></ShellContent>
+    <ShellContent
+        Title="Detalles"
+        ContentTemplate="{DataTemplate vistas:DetallesPersona}"
+        Route="DetallesPage"></ShellContent>
 
 </Shell>

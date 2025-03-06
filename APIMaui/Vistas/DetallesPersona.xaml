@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIMaui.Vistas.DetallesPersona"
+             xmlns:VM="clr-namespace:APIMaui.Models"
+             Title="DetallesPersona">
+
+    <ContentPage.BindingContext>
+        <VM:DetallesVM></VM:DetallesVM>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout>
+
+        <Label Text="{Binding PersonaDetalles.Id}"/>
+        <Label Text="{Binding PersonaDetalles.Nombre}"/>
+        <Label Text="{Binding PersonaDetalles.Direccion}"/>
+        <Button Text="Volver" Command="{Binding volverCommand}" VerticalOptions="Center" HorizontalOptions="End"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -23,5 +23,6 @@
             <Label Text="Direccion: "/>
             <Entry Placeholder="Indique la direccion" Text="{Binding PersonaEditar.Direccion}"/>
         </HorizontalStackLayout>
+        <Button Text="Editar" Command="{Binding editarPersonaCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
