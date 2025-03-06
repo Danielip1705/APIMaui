@@ -12,43 +12,78 @@ using System.Xml.Serialization;
 
 namespace APIMaui.Models
 {
-    public class PersonaVM : INotifyPropertyChanged
+    public class PersonaVM : ClsNotify
     {
-        public ObservableCollection<Personas> listaPersonas { get; set; }
-        private DelegateCommand crearPersona;
+        private ObservableCollection<Personas> listaPersonas = new ObservableCollection<Personas>();
+        private Personas personaSeleccionada;
+        public DelegateCommand crearPersona { get; set; }
+        public DelegateCommand actualizarLista { get; set; }
+        public DelegateCommand editarCommand { get; set; }
+        public DelegateCommand borrarCommand { get; set; }
 
-        public DelegateCommand CrearPersona
+        public ObservableCollection<Personas> ListaPersonas
         {
-            get { return crearPersona; }
-         
+            get { return listaPersonas; }
+            set
+            {
+                listaPersonas = value;
+                NotifyPropertyChanged("ListaPersonas");
+            }
         }
-
+        public Personas PersonaSeleccionada
+        {
+            get { return personaSeleccionada; }
+            set
+            {
+                personaSeleccionada = value;
+                editarCommand.RaiseCanExecuteChanged();
+                NotifyPropertyChanged("PersonaSeleccionada");
+            }
+        }
         public PersonaVM()
         {
             crearPersona = new DelegateCommand(createPersonaExecute);
             CargarPersonas();
+            actualizarLista = new DelegateCommand(CargarPersonas);
+            editarCommand = new DelegateCommand(editarExecute, canEditarPersona);
         }
 
 
-        public async Task CargarPersonas()
+        public async void CargarPersonas()
         {
             List<Personas> lista = await ManejadoraAPI.getPersonas();
+            listaPersonas.Clear();
             listaPersonas = new ObservableCollection<Personas>(lista);
-            NotifyPropertyChanged("listaPersonas");
+            NotifyPropertyChanged("ListaPersonas");
         }
 
         private async void createPersonaExecute()
         {
-           await Shell.Current.GoToAsync("///CreatePage");
+            await Shell.Current.GoToAsync("//CreatePage");
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void NotifyPropertyChanged(string propertyName)
+        private async void editarExecute()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Dictionary<string, object> editarPersona = new Dictionary<string, object>
+            {
+                {"editarPersona", personaSeleccionada }
+            };
+
+            await Shell.Current.GoToAsync("//EditarPage", editarPersona);
+
         }
+
+        private bool canEditarPersona()
+        {
+            bool res = false;
+            if (personaSeleccionada != null)
+            {
+                res = true;
+            }
+            return res;
+
+        }
+
     }
-
-
 }

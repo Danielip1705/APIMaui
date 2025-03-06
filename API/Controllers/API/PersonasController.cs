@@ -29,14 +29,14 @@ namespace API.Controllers.API
         [HttpPost]
         public void Post([FromBody] Personas per)
         {
-            ManejadoraPersonas.CrearPersona(per.Id, per.Nombre, per.Direccion);
+            ManejadoraPersonas.CrearPersona(per);
         }
 
         // PUT api/<PersonasController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Personas per)
         {
-            ManejadoraPersonas.ActualizarPersona(id, per.Nombre, per.Direccion);
+            ManejadoraPersonas.ActualizarPersona(id,per);
         }
 
         // DELETE api/<PersonasController>/5

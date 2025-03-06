@@ -39,13 +39,13 @@ namespace DAL
         }
 
 
-        public async Task<HttpStatusCode> insertarPersona(Personas per)
+        public static async Task<HttpStatusCode> insertarPersona(Personas per)
         {
             HttpClient mihttpClient = new HttpClient();
             string datos;
             HttpContent contenido;
             string miCadenaUrl = Url.getUri();
-            Uri miUri = new Uri($"{miCadenaUrl}Personas");
+            Uri miUri = new Uri($"{miCadenaUrl}");
             HttpResponseMessage miRespuesta = new HttpResponseMessage();
             try
             {
@@ -58,6 +58,27 @@ namespace DAL
                 throw ex;
             }
             return miRespuesta.StatusCode;
+        }
+
+        public static async Task<bool> actualizarPersona(Personas per)
+        {
+            HttpClient mihttpClient = new HttpClient();
+            string datos;
+            HttpContent contenido;
+            string miCadenaUrl = Url.getUri();
+            Uri miUri = new Uri($"{miCadenaUrl}/{per.Id}");
+            HttpResponseMessage miRespuesta = new HttpResponseMessage();
+            try
+            {
+                datos = JsonConvert.SerializeObject(per);
+                contenido = new StringContent(datos, System.Text.Encoding.UTF8, "application/json");
+                miRespuesta = await mihttpClient.PutAsync(miUri, contenido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return miRespuesta.IsSuccessStatusCode;
         }
     }  
 }

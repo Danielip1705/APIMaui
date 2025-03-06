@@ -35,23 +35,23 @@ namespace DAL
         }
 
         // Función para actualizar una persona
-        public static bool ActualizarPersona(int id, string nombre, string direccion)
+        public static bool ActualizarPersona(int id ,Personas per)
         {
             Personas persona = BuscarPersonaPorId(id);
             if (persona != null)
             {
-                persona.Nombre = nombre;
-                persona.Direccion = direccion;
+                persona.Nombre = per.Nombre;
+                persona.Direccion = per.Direccion;
                 return true;
             }
             return false;
         }
 
         // Función para crear una nueva persona
-        public static void CrearPersona(int id, string nombre, string direccion)
+        public static void CrearPersona(Personas per)
         {
-            Personas personaNueva = new Personas(id, nombre, direccion);
-            personasList.Add(personaNueva);
+            
+            personasList.Add(per);
         }
 
         // Función para eliminar una persona por su Id

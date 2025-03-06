@@ -4,15 +4,15 @@
              x:Class="APIMaui.Vistas.Listado"
              xmlns:VM="clr-namespace:APIMaui.Models"
              Title="Listado">
+
     <ContentPage.BindingContext>
         <VM:PersonaVM></VM:PersonaVM>
     </ContentPage.BindingContext>
 
-
+        
     <VerticalStackLayout>
-        <Label Text="Listado Personas" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-        <ListView ItemsSource="{Binding listaPersonas}">
+            <Label Text="Listado Personas" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ListView ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding PersonaSeleccionada}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -24,7 +24,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="AA" Command="{Binding CrearPersona}"></Button>
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Padding="10">
+        <Button Text="+" FontSize="Large" Command="{Binding crearPersona}"></Button>
+            <Button Text="Actualizar" Command="{Binding actualizarLista}"/>
+            <Button Text="Editar" Command="{Binding editarCommand}"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 
 </ContentPage>

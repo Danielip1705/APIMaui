@@ -23,6 +23,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="AA" Command="{Binding CrearPersona}"></Button>
+        <Button Text="AA" Command="{Binding crear}"></Button>
     </VerticalStackLayout>
 </ContentPage>

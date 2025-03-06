@@ -17,4 +17,9 @@
         ContentTemplate="{DataTemplate vistas:Create}"
         Route="CreatePage"/>
 
+    <ShellContent
+        Title="Editar"
+        ContentTemplate="{DataTemplate vistas:EditarPersona}"
+        Route="EditarPage"></ShellContent>
+
 </Shell>

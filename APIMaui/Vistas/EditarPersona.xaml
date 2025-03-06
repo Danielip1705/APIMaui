@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIMaui.Vistas.EditarPersona"
+             xmlns:VM="clr-namespace:APIMaui.Models"
+             Title="EditarPersona">
+
+    <ContentPage.BindingContext>
+        <VM:EditarPersonaVM></VM:EditarPersonaVM>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout>
+        <Label Text="Editar Persona" VerticalOptions="Center" FontSize="Large"/>
+        <HorizontalStackLayout>
+            <Label Text="Id: "/>
+            <Entry Text="{Binding EditarPersona.Id}" IsEnabled="False"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Nombre: "/>
+            <Entry Placeholder="Indique el nombre" Text="{Binding EditarPersona.Nombre}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Direccion: "/>
+            <Entry Placeholder="Indique la direccion" Text="{Binding EditarPersona.Direccion}"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -4,10 +4,20 @@
              x:Class="APIMaui.Vistas.Create"
              xmlns:VM="clr-namespace:APIMaui.Models"
              Title="Create">
+    <ContentPage.BindingContext>
+        <VM:CrearPersonaVM></VM:CrearPersonaVM>
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <HorizontalStackLayout VerticalOptions="Center">
+        <Label Text="Nombre: "/>
+            <Entry Placeholder="Indique el nombre" Text="{Binding Nombre}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Direccion: "/>
+            <Entry Placeholder="Indique la direccion" Text="{Binding Direccion}"/>
+        </HorizontalStackLayout>
+        <Button Text="Crear" Command="{Binding crearPersonaCommand}" VerticalOptions="Center"/>
+        <Button Command="{Binding volver}" Text="Volver" HorizontalOptions="End"/>
     </VerticalStackLayout>
 </ContentPage>

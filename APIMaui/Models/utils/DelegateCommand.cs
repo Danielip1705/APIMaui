@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace APIMaui.Models.utils
 {
-    public class DelegateCommand
+    public class DelegateCommand : ICommand
     {
         private readonly Action _execute;
 

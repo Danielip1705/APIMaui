@@ -71,6 +71,9 @@
 	  <MauiXaml Update="Vistas\Create.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Vistas\EditarPersona.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vistas\Listado.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
